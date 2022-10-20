@@ -116,7 +116,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../../../../../src/styles/style.css */ \"./src/styles/style.css\");\n\r\n\r\n\r\nconsole.log('hi');\n\n//# sourceURL=webpack://task-trak-2/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/projects */ \"./src/modules/projects.js\");\n/* harmony import */ var _modules_tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tasks */ \"./src/modules/tasks.js\");\n/* harmony import */ var _src_styles_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../src/styles/style.css */ \"./src/styles/style.css\");\n\r\n\r\n\r\n\r\nconst task = new _modules_tasks__WEBPACK_IMPORTED_MODULE_1__[\"default\"]('task 1', 'today' , 'details')\r\nconst task2 = new _modules_tasks__WEBPACK_IMPORTED_MODULE_1__[\"default\"]('task 2', 'tomorrow' , 'details2')\r\nconst task3 = new _modules_tasks__WEBPACK_IMPORTED_MODULE_1__[\"default\"]('task 3', 'tomorrow' , 'details2')\r\nconst task4 = new _modules_tasks__WEBPACK_IMPORTED_MODULE_1__[\"default\"]('task 4', 'tomorrow' , 'details2')\r\n\r\nconst ar = [task, task2]\r\n\r\nconst project = new _modules_projects__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('Project1')\r\nproject.setProjectTasks(ar)\r\n\r\nproject.addTask(task3)\r\nconsole.log('🌌 | file: index.js | line 12 | project', project.projectTasks)\r\n\r\nproject.deleteTask(task.name)\r\nconsole.log('🌌 | file: index.js | line 12 | project', project.projectTasks)\n\n//# sourceURL=webpack://task-trak-2/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/projects.js":
+/*!*********************************!*\
+  !*** ./src/modules/projects.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Project)\n/* harmony export */ });\n\r\n\r\nclass Project {\r\n    constructor(name) {\r\n        this.name = name,\r\n        this.projectTasks = []\r\n    }\r\n\r\n    setName = (name) => {\r\n        this.name = name\r\n    }\r\n    getProjectName = () => {\r\n        return this.name\r\n    }\r\n    setProjectTasks = (tasks) => {\r\n        this.projectTasks = tasks\r\n    }\r\n    getProjectTasks = () => {\r\n        return this.projectTasks\r\n    }\r\n    //RETURNS TASK - !! if TF value needed\r\n    getTask = taskName =>{\r\n        return this.projectTasks.find(task => task.getTaskName() === taskName)\r\n    }\r\n    addTask = task =>{\r\n        if (!!this.getTask(task.name)) return\r\n        this.projectTasks.push(task)\r\n    }\r\n    deleteTask = taskName =>{\r\n        this.projectTasks =  this.projectTasks.filter(task=>task.getTaskName() !== taskName)\r\n    }\r\n\r\n}\n\n//# sourceURL=webpack://task-trak-2/./src/modules/projects.js?");
+
+/***/ }),
+
+/***/ "./src/modules/tasks.js":
+/*!******************************!*\
+  !*** ./src/modules/tasks.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Task)\n/* harmony export */ });\nclass Task{\r\n    constructor(name, date, details){\r\n        this.name = name,\r\n        this.date = date,\r\n        this.details = details\r\n    }\r\n    setTaskName = name =>{\r\n        this.name = name\r\n    }\r\n    getTaskName = () =>{\r\n        return this.name\r\n    }\r\n    setDate = date =>{\r\n        this.date = date\r\n    }\r\n    getDate = () =>{\r\n        return this.date\r\n    }\r\n    setDetails = details =>{\r\n        this.details = details\r\n    }\r\n    getDetails = () =>{\r\n        return this.details\r\n    }\r\n}\n\n//# sourceURL=webpack://task-trak-2/./src/modules/tasks.js?");
 
 /***/ })
 
