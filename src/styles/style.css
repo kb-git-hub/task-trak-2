@@ -1,26 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* CSS Reset */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+:root {
+    --dev: 2px solid green;
 }
 
+/* RESET  */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
+html {
+    font-family: 'Poppins', sans-serif;
+}
 
 html,
 body {
     min-height: 100%;
 }
 
+/* USER INTERFACE */
+.container {
+    position: relative;
+    width: 1400px;
+    height: 700px;
+    margin: 0 auto;
+    margin-top: 100px;
+    min-width: 700px;
+    min-height: 550px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    outline: var(--dev);
+}
+
 body{
-    min-height: 100%;
-    background-color: blue;
+    background-color: gray;
+}
+
+
+/* NAV (LEFT SIDE) */
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    min-width: 270px;
+    outline: var(--dev);
+}
+
+.logo{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:default;
+    outline: var(--dev);
+    gap: 2px;
+}
+
+.logo-letters{
+    display: flex;  
+}
+
+.logo-letter{
+    font-size: 24px;
+    font-weight: 600;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--dev);
+}
+
+.action-button-container{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-top: 40px;
+}
+
+.action-button{
+    outline: var(--dev);
+    cursor:pointer
+}
+
+.add-item-button{
+    outline: var(--dev);
+    cursor:pointer
+}
+
+
+/* MODAl  */
+.add-item-modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    outline: var(--dev);
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.add-item-modal.active{
     display: flex;
 }
 
-div{
-    background-color: blue;
+.add-item-type{
+    display: flex;
+    gap: 2px;
+}
+
+.add-item-type{
+    display: flex;
+    gap: 2px;
+}
+
+.add-item-priority{
+    display: flex;
+    gap: 2px;
 }

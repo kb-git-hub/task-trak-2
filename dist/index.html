@@ -7,13 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task track 2</title>
     <link rel="shortcut icon" href="/src/assets/icon.png">
-   
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script defer src="main.js"></script></head>
 
 <body>
-    <div>test</div>
-    <div>test</div>
-   
+<div class="container">
+    <div class="nav">
+        <div class="logo">
+            <div class="logo-letters">
+                <div class="logo-letter">T</div><div class="logo-letter">A</div><div class="logo-letter">S</div><div class="logo-letter">K</div>
+                <div class="logo-letter">T</div><div class="logo-letter">R</div><div class="logo-letter">A</div><div class="logo-letter">K</div>
+            </div>
+            <div>
+                <span class="material-symbols-outlined logoPad">note_alt</span>
+            </div>    
+        </div>
+
+        <div class="action-button-container">
+            <div id='show-tasks' class="action-button"> TASKS</div>
+            <div id='show-projects' class="action-button">PROJECTS</div>
+            <span id="add-item-btn" class="add-item-button material-symbols-outlined">add_circle</span>
+        </div>
+    </div>
+
+    <div class="todo-preview-window" id="todo-preview-window">
+        <div>task</div>
+        <div>project</div>
+    </div>
+</div>    
+
+<!-- ADD ITEM MODAL  -->
+<div class="add-item-modal" id="add-item-modal">
+    <div class="add-item-type"> Add type: 
+        <div class="add-task">Task</div>
+        <div class="add-project">Project</div>
+    </div>
+    <div class="add-item-priority">
+        <div>Priority:</div>
+        <div class='add-item=priority' id="priority-low">Low</div>    
+        <div class='add-item=priority' id="priority-medium">Medium</div>    
+        <div class='add-item=priority' id="priority-high">High</div>    
+    </div>
+    <input id="add-item-title" type="text" placeholder="title">
+    <input id="add-item-details" type="text" placeholder="details">
+    <button type="submit" id="add-item-submit" class="">Create</button>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
 </body>
 </html>
 
