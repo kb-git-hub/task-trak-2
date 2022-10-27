@@ -1,19 +1,24 @@
-import Project from './modules/projects';
-import Task from './modules/tasks';
-import '/src/styles/style.css'
 
-const task = new Task('task 1', 'today' , 'details')
-const task2 = new Task('task 2', 'tomorrow' , 'details2')
-const task3 = new Task('task 3', 'tomorrow' , 'details2')
-const task4 = new Task('task 4', 'tomorrow' , 'details2')
+import { q, qA, create } from './modules/utils'
+import '/src/style.css'
 
-const ar = [task, task2]
 
-const project = new Project('Project1')
-project.setProjectTasks(ar)
 
-project.addTask(task3)
-console.log('🌌 | file: index.js | line 12 | project', project.projectTasks)
 
-project.deleteTask(task.name)
-console.log('🌌 | file: index.js | line 12 | project', project.projectTasks)
+
+// SHOW / HIDE LEFT MENU
+const menu = q('.hiddenMenu')
+menu.addEventListener('click', () => {
+    const leftMenu = q('.leftPanel')
+    leftMenu.classList.toggle('hidden')
+})
+
+//STARTUP COLOR THEME -- ! put on darkmode for dev
+const themeSelector = q('.checkbox')
+if (!themeSelector.checked) document.body.classList.add('light')
+else document.body.classList.remove('light')
+
+// LIGHT / DARK THEME SWITCH
+themeSelector.addEventListener('change', () => document.body.classList.toggle('light'))
+
+
