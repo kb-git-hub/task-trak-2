@@ -2,5 +2,12 @@ const q = (query) => document.querySelector(query)
 const qA = (query) => [...document.querySelectorAll(query)]
 const create = (query) => document.createElement(query)
 
-export { q, qA, create }
+const createSpanIcon = name =>{
+    const icon = create('span')
+    icon.classList.add('material-icons-round')
+    icon.textContent = name
+    return icon
+}
+
+export { q, qA, create, createSpanIcon }
 

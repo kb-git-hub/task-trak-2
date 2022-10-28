@@ -505,7 +505,7 @@ ul .material-icons-round{
     padding:10px 20px;
     background-color: var(--bgColor1);
 }
-#addList{
+#addTaskBtn{
     padding-left:45px;
 }
 
