@@ -1,6 +1,13 @@
-
-import { q, qA, create } from './modules/utils'
 import '/src/style.css'
+
+import { createProjectListeners } from './modules/project'
+import { q } from './modules/utils'
+
+
+
+
+// listEvents()
+createProjectListeners()
 
 
 
@@ -9,8 +16,8 @@ import '/src/style.css'
 // SHOW / HIDE LEFT MENU
 const menu = q('.hiddenMenu')
 menu.addEventListener('click', () => {
-    const leftMenu = q('.leftPanel')
-    leftMenu.classList.toggle('hidden')
+    const leftPanel = q('.leftPanel')
+    leftPanel.classList.toggle('hidden')
 })
 
 //STARTUP COLOR THEME -- ! put on darkmode for dev
