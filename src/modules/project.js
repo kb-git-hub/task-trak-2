@@ -44,7 +44,7 @@ function addProject(projectID, projectNameInput){
     const projectForm = q('#projectForm')
 
     const projectContainer = create('div')
-    projectContainer.setAttribute('data-project', projectID)
+    projectContainer.setAttribute('data-project', `${projectID}`)
     projectContainer.classList.add('tile')
     project.insertBefore(projectContainer, projectForm)
 
@@ -58,6 +58,7 @@ function addProject(projectID, projectNameInput){
     projectInfo.classList.add('projectInfo')
     projectContainer.appendChild(projectInfo)
     const projectName = create('div')
+    projectName.classList.add('projectName')
     projectName.textContent = projectNameInput
     projectInfo.appendChild(projectName)
 
@@ -76,13 +77,47 @@ function addProject(projectID, projectNameInput){
 
 }
 
+//SELECT FROM HOME DIV - CLOSEST TILE (ALL, TODAY, 7, IMPORTANT)
+function checkTile(e){
+    let homeTile = e.target.closest('.home .tile')
+    let projectTile = e.target.closest('.project .tile')
 
-function checkTile(){}
-function selectTile(){}
+    if (homeTile){
+        selectTile(homeTile)
+        const title = homeTile.querySelector('[data-name]')
+        
+        hideAddTaskBtn()
+        
+        
+    } else if (projectTile){
+        const title = projectTile.querySelector('.projectName')
+        let projectID = projectTile.dataset.project
+        console.log('🌌 | file: project.js | line 95 | checkTile | projectID', projectID)
+        
+
+        revertEditFormLocation()
+        revertOptionLocation()
+        
+        displayTask(dataProject)
+        selectTile(projectTile)
+        
+        updateTitle()
+        showAddTaskBtn()
+
+    }
+
+}
+
+
+function selectTile(tileToSelect){
+    const selectedTile = q('.selected')
+    selectedTile.classList.remove('selected') //REMOVE SELECTED FROM EXISTING TILE
+    tileToSelect.classList.add('selected') // APPLY SELECTED TO NEW TILE
+}
 
 function displayProject(array){
     array.forEach(project=>{
-        addProject(project.ID, project.name)
+        addProject(project.projectID, project.name)
     })
 }
 
@@ -133,3 +168,4 @@ export class Project{
         this.projectID = projectID
     }
 }
+

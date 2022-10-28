@@ -4,13 +4,8 @@ import { createProjectListeners } from './modules/project'
 import { q } from './modules/utils'
 
 
-
-
 // listEvents()
 createProjectListeners()
-
-
-
 
 
 // SHOW / HIDE LEFT MENU
