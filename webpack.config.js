@@ -2,6 +2,9 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+
+
 
 module.exports = {
   entry: './src/index.js',
@@ -23,8 +26,18 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '..', '.tmp')],
+      cleanAfterEveryBuildPatterns: ['!images/**/*', '!fonts/**/*'],
+      verbose: true,
+      dry: false
+    }),
     new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new CopyPlugin({
+      patterns: [
+        { from: "src/images", to: "images" },
+      ],
+    }),
 ],
 
 };

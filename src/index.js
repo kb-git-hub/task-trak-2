@@ -2,11 +2,12 @@ import '/src/style.css'
 
 import { createProjectListeners } from './modules/project'
 import { q } from './modules/utils'
+import { createTaskListeners } from './modules/task'
 
 
 // listEvents()
 createProjectListeners()
-
+createTaskListeners()
 
 // SHOW / HIDE LEFT MENU
 const menu = q('.hiddenMenu')

@@ -99,13 +99,13 @@
                     <button id="listDelete">Delete</button>
                 </div>
                 <!-- hidden pop up edit task form  -->
-                <form id="editListForm" class="hidden" autocomplete="off">
+                <form id="editTaskForm" class="hidden" autocomplete="off">
                     <div class="inputField">
                         <label>Title:</label>
                         <input type="text" id="editListTitle" placeholder="What to do?">
                         <label>Details(optional):</label>
-                        <textarea type="text" id="editListInputDetail"
-                            placeholder="eg: I'm just gonna procrastinate, aren't I?" wrap="hard"></textarea>
+                        <textarea type="text" id="editTaskTitle"
+                            placeholder="eg: list?" wrap="hard"></textarea>
                         <label>Date:</label>
                         <input type="date" id="editListInputDate">
                         <div class="formButtons">
@@ -115,13 +115,13 @@
                     </div>
                 </form>
                 <!-- hidden pop up adding task form -->
-                <form id="listForm" class="hidden" autocomplete="off">
+                <form id="addTaskForm" class="hidden" autocomplete="off">
                     <div class="inputField">
                         <label>Title:</label>
-                        <input type="text" id="listInput" placeholder="What to do?">
+                        <input type="text" id="taskTitle" placeholder="What to do?">
                         <label>Details(optional):</label>
                         <textarea type="text" id="listInputDetail"
-                            placeholder="eg: I'm just gonna procrastinate, aren't I?" wrap="hard"></textarea>
+                            placeholder="eg: edit lis" wrap="hard"></textarea>
                         <label>Date:</label>
                         <input type="date" id="listInputDate">
                         <div class="formButtons">

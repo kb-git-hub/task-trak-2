@@ -263,8 +263,8 @@ form:hover{
 
 .project #projectForm, 
 .project #renameForm,
-#listForm,
-#editListForm{
+#addTaskForm,
+#editTaskForm{
     display:flex;
     flex:1;
     align-items:flex-start;
@@ -452,7 +452,7 @@ ul .material-icons-round{
 }
 
 /* edit form css */
-#editListForm{
+#editTaskForm{
     background-color: transparent;
 }
 .list-details{
