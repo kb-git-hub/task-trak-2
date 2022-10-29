@@ -1,3 +1,4 @@
+import { updateTitle } from "./task";
 import { q, qA, create, createSpanIcon } from "./utils";
 
 // CREATE EVENT LISTENERS FOR NEW PROJECT FUNCTIONS
@@ -20,7 +21,7 @@ export const createProjectListeners = () =>{
 
 // RETRIEVE LOCAL STORAGE OBJECTS OR START WITH EMPTY PROJECT ARRAY
 let emptyProjectList = []
-let projectList = localStorage.getItem('projectStorage')
+export let projectList = localStorage.getItem('projectStorage')
 projectList = JSON.parse(projectList || JSON.stringify(emptyProjectList))
 
 
@@ -83,26 +84,34 @@ function checkTile(e){
     let projectTile = e.target.closest('.project .tile')
 
     if (homeTile){
-        selectTile(homeTile)
         const title = homeTile.querySelector('[data-name]')
         
+        selectTile(homeTile)
+
+        // TODO
+        // revertOptionLocation();
+        // checkWhichHomeTile(homeTile);
+        //
+        
+        updateTitle(title);
         hideAddTaskBtn()
         
         
     } else if (projectTile){
         const title = projectTile.querySelector('.projectName')
         let projectID = projectTile.dataset.project
-        console.log('🌌 | file: project.js | line 95 | checkTile | projectID', projectID)
         
 
-        revertEditFormLocation()
-        revertOptionLocation()
+        // TODO
+        // revertEditFormLocation()
+        // revertOptionLocation()
+        // displayTask(dataProject)
+        //
         
-        displayTask(dataProject)
+        showAddTaskBtn()
+        updateTitle(title)
         selectTile(projectTile)
         
-        updateTitle()
-        showAddTaskBtn()
 
     }
 
@@ -128,7 +137,7 @@ function assignProjectID(){
     return newProjectID
 }
 
-function saveToLocalStorage(){
+export function saveToLocalStorage(){
     localStorage.setItem('projectStorage', JSON.stringify(projectList))
     // localStorage.setItem('currentID', (id).toString())
 }
@@ -146,7 +155,7 @@ function hideProjectCreationForm(){
 }
 
 // HIDE TASK BUTTON
-function hideAddTaskBtn(){
+export function hideAddTaskBtn(){
     const taskBtn = q('#addTaskBtn')
     taskBtn.classList.add('hidden')
 }
