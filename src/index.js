@@ -6,8 +6,8 @@ import { createTaskListeners } from './modules/task'
 
 
 // listEvents()
-createProjectListeners()
 createTaskListeners()
+createProjectListeners()
 
 // SHOW / HIDE LEFT MENU
 const menu = q('.hiddenMenu')

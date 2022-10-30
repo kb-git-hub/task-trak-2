@@ -91,8 +91,7 @@
         <div id="rightPanel" class="rightPanel">
             <div class="title">All Tasks</div>
             <div class="list-todo">
-                <ul>
-                </ul>
+                <ul></ul>
                 <!-- hidden pop up option -->
                 <div class="option hidden" id="listOption">
                     <button id="listEdit">Edit</button>
@@ -118,15 +117,15 @@
                 <form id="addTaskForm" class="hidden" autocomplete="off">
                     <div class="inputField">
                         <label>Title:</label>
-                        <input type="text" id="taskTitle" placeholder="What to do?">
-                        <label>Details(optional):</label>
-                        <textarea type="text" id="listInputDetail"
-                            placeholder="eg: edit lis" wrap="hard"></textarea>
+                        <input type="text" id="taskTitle" placeholder="Task title">
+                        <label>Details:</label>
+                        <textarea type="text" id="taskInputDetail"
+                            placeholder="eg: edit details" wrap="hard"></textarea>
                         <label>Date:</label>
-                        <input type="date" id="listInputDate">
+                        <input type="date" id="taskInputDate">
                         <div class="formButtons">
-                            <input type="submit" class="listSubmitBtn" value="Add">
-                            <input type="button" class="listCancelBtn" value="Cancel">
+                            <input type="submit" class="taskSubmitBtn" value="Add">
+                            <input type="button" class="taskCancelBtn" value="Cancel">
                         </div>
                     </div>
                 </form>

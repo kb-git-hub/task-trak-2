@@ -1,4 +1,4 @@
-import { updateTitle } from "./task";
+import { updateTitle ,id, displayTask } from "./task";
 import { q, qA, create, createSpanIcon } from "./utils";
 
 // CREATE EVENT LISTENERS FOR NEW PROJECT FUNCTIONS
@@ -37,6 +37,7 @@ function processProjectInput(e){
 
     addProject(projectID, newProject.name)
     hideProjectCreationForm()
+
 }
 
 // ADD PROJECT TO DOM
@@ -105,7 +106,7 @@ function checkTile(e){
         // TODO
         // revertEditFormLocation()
         // revertOptionLocation()
-        // displayTask(dataProject)
+        displayTask(projectID)
         //
         
         showAddTaskBtn()
@@ -139,7 +140,7 @@ function assignProjectID(){
 
 export function saveToLocalStorage(){
     localStorage.setItem('projectStorage', JSON.stringify(projectList))
-    // localStorage.setItem('currentID', (id).toString())
+    localStorage.setItem('currentID', id.toString())
 }
 
 function showProjectCreationForm(){
@@ -172,9 +173,17 @@ function showAddTaskBtn(){
 export class Project{
     constructor(name, projectID){
         this.name = name
+        this.projectID = projectID
         this.taskList = []
         this.taskCount = this.taskList.length
-        this.projectID = projectID
+    }
+
+    addTaskToProject(task){
+        this.taskList.push(task)
+    }
+
+    testFunction(){
+        console.log('project Test Function')
     }
 }
 
