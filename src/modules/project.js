@@ -177,13 +177,5 @@ export class Project{
         this.taskList = []
         this.taskCount = this.taskList.length
     }
-
-    addTaskToProject(task){
-        this.taskList.push(task)
-    }
-
-    testFunction(){
-        console.log('project Test Function')
-    }
 }
 

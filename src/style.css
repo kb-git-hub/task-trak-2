@@ -392,7 +392,7 @@ ul{
     color:var(--textColor);
 }
 
-.list-todo{
+.task-list{
     display: flex;
     flex-direction: column;
 }
@@ -505,7 +505,7 @@ ul .material-icons-round{
     align-content: space-around;
 }
 
-.list-todo form{
+.task-list form{
     padding:10px 20px;
     background-color: var(--bgColor1);
 }
@@ -513,11 +513,11 @@ ul .material-icons-round{
     padding-left:45px;
 }
 
-.list-todo button:hover,
+.task-list button:hover,
 li:hover{
     background-color: var(--bgColor1);
 }
-.list-todo button:active,
+.task-list button:active,
 li:active{
     transform:scale(0.995);
 }

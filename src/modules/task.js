@@ -12,7 +12,7 @@ export const createTaskListeners = () =>{
     const submitTask = q('#addTaskForm')
     submitTask.addEventListener('submit', createNewTask)
 
-    const todoList = q('.list-todo')
+    const todoList = q('.task-list')
     todoList.addEventListener('click', checkListEvent)
 
 }
