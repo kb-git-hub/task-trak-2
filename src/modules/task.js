@@ -17,7 +17,27 @@ export const createTaskListeners = () =>{
 
 }
 
-function checkListEvent(e){}
+
+// IF CLICK EVENT MATCHES A CERTAIN BUTTON -PERFORM FUNCTION
+function checkListEvent(e){
+    let isStarIcon = e.target.matches('.star-outline')
+    let isCheckIcon = e.target.matches('.unchecked')
+    
+    let isEditSubmitBtn = e.target.matches('.editTaskSubmitBtn')
+    let isEditTaskCancel = e.target.matches('.editTaskCancelBtn')
+
+
+    let isEditBtn = e.target.matches('#taskEdit')
+    let isDeleteBtn = e.target.matches('#taskDelete')
+
+
+
+
+
+    console.log(e.target)
+
+
+}
 
 
 function showNewTaskForm(){
@@ -62,7 +82,7 @@ function createNewTask(e){
     id++
     saveToLocalStorage()
 
-    addTask(taskID, name, details, date)
+    addTask(taskID, name, details, formattedDate)
     hideNewTaskForm()
 
 }
