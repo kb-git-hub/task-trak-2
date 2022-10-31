@@ -34,7 +34,9 @@ function checkListEvent(e) {
         styleCompletedTask(e);
         updateCompletedTask(e);
     }
+    
 }
+
 function showNewTaskForm() {
     const addTaskForm = q("#addTaskForm");
     addTaskForm.classList.remove("hidden");
