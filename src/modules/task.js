@@ -78,7 +78,7 @@ function createNewTask(e) {
     hideNewTaskForm();
 }
 
-function addTask(taskID, name, details, date, completed, important) {
+export function addTask(taskID, name, details, date, completed, important) {
     const ul = q("ul");
     const li = create("li");
     li.id = taskID;
@@ -98,7 +98,6 @@ function addTask(taskID, name, details, date, completed, important) {
         taskCard.classList.toggle("fade");
     }
 
-    // A task wouldn't start completed
     const taskName = create("div");
     taskName.classList.add("taskName");
     taskName.textContent = name;
@@ -155,7 +154,7 @@ export function displayTask(projectID) {
     });
 }
 
-function findCurrentProjectID() {
+export function findCurrentProjectID() {
     const currentProject = q(".selected");
     return currentProject.dataset.project;
 }

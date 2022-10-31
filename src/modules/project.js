@@ -1,3 +1,4 @@
+import { checkWhichHomeTile } from "./home";
 import { updateTitle ,id, displayTask } from "./task";
 import { q, qA, create, createSpanIcon } from "./utils";
 
@@ -91,7 +92,7 @@ function checkTile(e){
 
         // TODO
         // revertOptionLocation();
-        // checkWhichHomeTile(homeTile);
+        checkWhichHomeTile(homeTile);
         //
         
         updateTitle(title);
