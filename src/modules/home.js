@@ -6,6 +6,21 @@ export function checkWhichHomeTile(selectedTile) {
     if (selectedTile.matches("#allTasks")) {
         displayAllTasks();
     }
+    
+    else if (selectedTile.matches("#today")) {
+        displayToday();
+    }
+    
+    else if (selectedTile.matches("#thisWeek")) {
+        displayThisWeek();
+    }
+    
+    else if (selectedTile.matches("#important")) {
+        displayImportant();
+    }
+
+
+    
 }
 
 function clearContent() {
@@ -15,8 +30,6 @@ function clearContent() {
 
 function displayAllTasks() {
     clearContent();
-    console.log(projectList)
-
     projectList.forEach((project) => {
         project.taskList.forEach((task) => {
             addTask(
@@ -29,15 +42,15 @@ function displayAllTasks() {
             );
         });
     });
-    hideAddTaskBtn()
-    checkNoTask()
+    hideAddTaskBtn();
+    checkNoTask();
 }
 
-function checkNoTask(){
-    const ul = q('ul')
-    if (!ul.textContent){
-        const div = create('div')
-        div.classList.add('noTask')
-        div.textContent = 'No tasks'
-    } else return
+function checkNoTask() {
+    const ul = q("ul");
+    if (!ul.textContent) {
+        const div = create("div");
+        div.classList.add("noTask");
+        div.textContent = "No tasks";
+    } else return;
 }

@@ -1,5 +1,5 @@
 import { projectList, saveToLocalStorage } from "./project";
-import { styleImportantTask, updateImportantTask } from "./taskEdit";
+import { styleCompletedTask, styleImportantTask, updateCompletedTask, updateImportantTask } from "./taskEdit";
 import { createSpanIcon, q, create } from "./utils";
 
 export const createTaskListeners = () => {
@@ -30,9 +30,11 @@ function checkListEvent(e) {
     if (isStarIcon) {
         styleImportantTask(e);
         updateImportantTask(e);
+    } else if (isCheckIcon) {
+        styleCompletedTask(e);
+        updateCompletedTask(e);
     }
 }
-
 function showNewTaskForm() {
     const addTaskForm = q("#addTaskForm");
     addTaskForm.classList.remove("hidden");
@@ -143,14 +145,7 @@ export function displayTask(projectID) {
     const ul = q("ul");
     ul.textContent = "";
     projectList[projectID].taskList.forEach((task) => {
-        addTask(
-            task.id,
-            task.name,
-            task.details,
-            task.date,
-            task.completed,
-            task.important
-        );
+        addTask(task.id, task.name, task.details, task.date, task.completed, task.important);
     });
 }
 

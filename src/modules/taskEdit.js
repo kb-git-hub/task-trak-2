@@ -11,17 +11,40 @@ export function styleImportantTask(e) {
 
 export function updateImportantTask(e) {
     const taskId = Number(e.target.closest("li").id);
-    
-    const projectID = getAssociatedProject(taskId);
-    const selectedTask = findSelectedTask(taskId, projectID);
+
+    const selectedTask = findSelectedTask(taskId);
     selectedTask.important = !selectedTask.important;
     saveToLocalStorage();
-
     revertOptionLocation();
     refreshDisplay(selectedTask.projectID);
 }
 
-export function findSelectedTask(taskID, projectID) {
+export function styleCompletedTask(e) {
+    let uncheck = e.target;
+    let taskCard = e.target.closest("li");
+    let taskDetails = taskCard.querySelector(".taskDetails");
+    let taskName = taskCard.querySelector(".taskName");
+    taskName.classList.toggle("lineThrough");
+    taskName.classList.toggle("fade");
+    taskDetails.classList.toggle("lineThrough");
+    taskDetails.classList.toggle("fade");
+    uncheck.classList.toggle("checked");
+}
+
+export function updateCompletedTask(e) {
+    let taskID = e.target.closest("li").id;
+
+    let selectedTask = findSelectedTask(Number(taskID));
+    console.log(
+        "🌌 | file: taskEdit.js | line 38 | updateCompletedTask | selectedTask",
+        selectedTask
+    );
+    selectedTask.completed = !selectedTask.completed;
+    saveToLocalStorage();
+}
+
+export function findSelectedTask(taskID) {
+    const projectID = getAssociatedProject(taskID);
     return projectList[projectID].taskList.find((task) => task.id === taskID);
 }
 
@@ -34,10 +57,10 @@ function refreshDisplay(project) {
     } else return;
 }
 
-function getAssociatedProject(taskID){
-    for(const project of projectList){
+function getAssociatedProject(taskID) {
+    for (const project of projectList) {
         for (const task of project.taskList) {
-            if (task.id === taskID) return (task.projectID);
+            if (task.id === taskID) return task.projectID;
         }
-    };
+    }
 }
