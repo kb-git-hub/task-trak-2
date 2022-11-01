@@ -3,11 +3,13 @@ import '/src/style.css'
 import { createProjectListeners } from './modules/project'
 import { q } from './modules/utils'
 import { createTaskListeners } from './modules/task'
+import { editContainerListeners } from './modules/projectEdit'
 
 
 // listEvents()
 createTaskListeners()
 createProjectListeners()
+editContainerListeners()
 
 // SHOW / HIDE LEFT MENU
 const menu = q('.hiddenMenu')

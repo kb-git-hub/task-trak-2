@@ -35,10 +35,6 @@ export function updateCompletedTask(e) {
     let taskID = e.target.closest("li").id;
 
     let selectedTask = findSelectedTask(Number(taskID));
-    console.log(
-        "🌌 | file: taskEdit.js | line 38 | updateCompletedTask | selectedTask",
-        selectedTask
-    );
     selectedTask.completed = !selectedTask.completed;
     saveToLocalStorage();
 }
