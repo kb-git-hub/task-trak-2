@@ -2,6 +2,15 @@ import { projectList, saveToLocalStorage } from "./project";
 import { updateTitle } from "./task";
 import { q } from "./utils";
 
+export function editContainerListener(){
+
+}
+
+
+export function relocateOption(e){
+    const editContainer = e.target.closest('.editContainer')
+
+}
 export function revertOptionLocation(){
     // LEFT SIDE
     const projectOption = q('#projectOption')

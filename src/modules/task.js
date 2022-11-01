@@ -33,6 +33,8 @@ function checkListEvent(e) {
     } else if (isCheckIcon) {
         styleCompletedTask(e);
         updateCompletedTask(e);
+    } else if (isDeleteBtn){
+
     }
     
 }
