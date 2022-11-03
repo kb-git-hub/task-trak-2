@@ -146,6 +146,8 @@ export function addTask(taskID, name, details, date, completed, important) {
 }
 
 export function displayTask(projectID) {
+    console.log('🌌 | file: task.js | line 149 | displayTask | projectID', projectID)
+    
     const ul = q("ul");
     ul.textContent = "";
     projectList[projectID].taskList.forEach((task) => {

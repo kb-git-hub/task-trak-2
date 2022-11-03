@@ -85,12 +85,13 @@ function addProject(projectID, projectNameInput){
 
 //SELECT FROM HOME DIV - CLOSEST TILE (ALL, TODAY, 7, IMPORTANT)
 function checkTile(e){
+    // console.log('e.target-checkTile',e.target.closest('.project .tile'));
     let homeTile = e.target.closest('.home .tile')
     let projectTile = e.target.closest('.project .tile')
+    console.log('🌌 | file: project.js | line 91 | checkTile | projectTile', projectTile)
 
     if (homeTile){
         const title = homeTile.querySelector('[data-name]').textContent
-        console.log('🌌 | file: project.js | line 90 | checkTile | title', title)
         
         selectTile(homeTile)
         revertOptionLocation();
@@ -101,8 +102,6 @@ function checkTile(e){
     } else if (projectTile){
         const title = projectTile.querySelector('.projectName').textContent
         let projectID = projectTile.dataset.project
-        console.log('🌌 | file: project.js | line 104 | checkTile | projectID', projectID)
-
         
 
         revertEditFormLocation()

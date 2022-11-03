@@ -116,10 +116,15 @@ function showRenameProjForm(e){
 
 function deleteProject(e){
     let tile = e.target.closest('.tile')
-    console.log('🌌 | file: projectEdit.js | line 119 | deleteProject | tile', tile)
-    let index = tile.dataset.project
-    console.log('🌌 | file: projectEdit.js | line 121 | deleteProject | index', index)
+    let index = Number(tile.dataset.project)
     
+    if(tile.classList.contains('selected')){
+        const today = q('#today')
+        const nameNode = today.querySelector('[data-name]') //Select Tile will fail if a tile isn't selected
+        today.classList.add('selected')
+        updateTitle(nameNode.textContent)
+    }
+
     revertOptionLocation(e)
     tile.remove()
     sortArray()
@@ -129,10 +134,11 @@ function deleteProject(e){
 
 function sortArray(){
     let i = 0
-
     const tiles = document.querySelectorAll('.project .tile')
+    console.log('🌌 | file: projectEdit.js | line 138 | sortArray | tiles', tiles)
     tiles.forEach(tile =>{
         let dataNum = tile.dataset.project // index number
+        tile.dataset.project = i
         projectList[dataNum].projectID = i //update projectID
         i++
     })
