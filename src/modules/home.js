@@ -1,6 +1,6 @@
 import { hideAddTaskBtn, projectList } from "./project";
 import { addTask } from "./task";
-import { q } from "./utils";
+import { q , create} from "./utils";
 
 export function checkWhichHomeTile(selectedTile) {
     if (selectedTile.matches("#allTasks")) {

@@ -1,6 +1,9 @@
 import { checkWhichHomeTile } from "./home";
+import { revertOptionLocation } from "./projectEdit";
 import { updateTitle ,id, displayTask } from "./task";
+import { revertEditFormLocation } from "./taskEdit";
 import { q, qA, create, createSpanIcon } from "./utils";
+
 
 // CREATE EVENT LISTENERS FOR NEW PROJECT FUNCTIONS
 export const createProjectListeners = () =>{
@@ -86,37 +89,30 @@ function checkTile(e){
     let projectTile = e.target.closest('.project .tile')
 
     if (homeTile){
-        const title = homeTile.querySelector('[data-name]')
+        const title = homeTile.querySelector('[data-name]').textContent
+        console.log('🌌 | file: project.js | line 90 | checkTile | title', title)
         
         selectTile(homeTile)
-
-        // TODO
-        // revertOptionLocation();
-        checkWhichHomeTile(homeTile);
-        //
-        
+        revertOptionLocation();
         updateTitle(title);
         hideAddTaskBtn()
         
         
     } else if (projectTile){
-        const title = projectTile.querySelector('.projectName')
+        const title = projectTile.querySelector('.projectName').textContent
         let projectID = projectTile.dataset.project
+        console.log('🌌 | file: project.js | line 104 | checkTile | projectID', projectID)
+
         
 
-        // TODO
-        // revertEditFormLocation()
-        // revertOptionLocation()
+        revertEditFormLocation()
+        revertOptionLocation()
         displayTask(projectID)
-        //
         
         showAddTaskBtn()
         updateTitle(title)
         selectTile(projectTile)
-        
-
     }
-
 }
 
 
@@ -166,8 +162,6 @@ function showAddTaskBtn(){
     const taskBtn = q('#addTaskBtn')
     taskBtn.classList.remove('hidden')
 }
-
-
 
 
 // PROJECT CLASS

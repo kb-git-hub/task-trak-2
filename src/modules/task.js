@@ -57,7 +57,7 @@ function hideNewTaskForm() {
 
 export const updateTitle = (title) => {
     const titleHeading = q(".title");
-    titleHeading.textContent = title.textContent;
+    titleHeading.textContent = title;
 };
 
 let defaultID = 0;

@@ -60,3 +60,11 @@ function getAssociatedProject(taskID) {
         }
     }
 }
+
+export function revertEditFormLocation(){
+    const editForm = q('#editTaskForm')
+    const listToDo = q('.task-list')
+
+    editForm.classList.add('hidden')
+    listToDo.appendChild(editForm)
+}
