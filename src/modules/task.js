@@ -1,5 +1,5 @@
 import { projectList, saveToLocalStorage } from "./project";
-import { styleCompletedTask, styleImportantTask, updateCompletedTask, updateImportantTask } from "./taskEdit";
+import { deleteTask, processEditTask, revertEditFormLocation, showEditForm, styleCompletedTask, styleImportantTask, updateCompletedTask, updateImportantTask } from "./taskEdit";
 import { createSpanIcon, q, create } from "./utils";
 
 export const createTaskListeners = () => {
@@ -16,8 +16,10 @@ export const createTaskListeners = () => {
     todoList.addEventListener("click", checkListEvent);
 };
 
+
 // IF CLICK EVENT MATCHES A CERTAIN BUTTON -PERFORM FUNCTION
 function checkListEvent(e) {
+    
     let isStarIcon = e.target.matches(".star-outline");
     let isCheckIcon = e.target.matches(".unchecked");
 
@@ -34,10 +36,19 @@ function checkListEvent(e) {
         styleCompletedTask(e);
         updateCompletedTask(e);
     } else if (isDeleteBtn){
-
+        deleteTask(e)
+    } else if (isEditBtn){
+        showEditForm(e)
+    } else if(isEditSubmitBtn){
+        processEditTask(e)
+    }else if (isEditTaskCancel){
+        revertEditFormLocation()
+        showHiddenTask()
+    } else{
+        return
     }
-    
 }
+
 
 function showNewTaskForm() {
     const addTaskForm = q("#addTaskForm");
@@ -145,9 +156,7 @@ export function addTask(taskID, name, details, date, completed, important) {
     editContainer.appendChild(threeDots);
 }
 
-export function displayTask(projectID) {
-    console.log('🌌 | file: task.js | line 149 | displayTask | projectID', projectID)
-    
+export function displayTask(projectID) {    
     const ul = q("ul");
     ul.textContent = "";
     projectList[projectID].taskList.forEach((task) => {
@@ -160,7 +169,7 @@ export function findCurrentProjectID() {
     return currentProject.dataset.project;
 }
 
-function processDate(date) {
+export function processDate(date) {
     if (date) return date;
     else return "No Due Date";
 }

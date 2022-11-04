@@ -75,7 +75,7 @@ export function relocateOption(e){
         projectOptions.classList.remove('hidden')
         editContainer.appendChild(projectOptions)
      } else if (e.target.closest('li')){
-        const taskOption = q('.taskOption')
+        const taskOption = q('#taskOption')
         taskOption.classList.remove('hidden')
         editContainer.appendChild(taskOption)
      }
@@ -135,7 +135,6 @@ function deleteProject(e){
 function sortArray(){
     let i = 0
     const tiles = document.querySelectorAll('.project .tile')
-    console.log('🌌 | file: projectEdit.js | line 138 | sortArray | tiles', tiles)
     tiles.forEach(tile =>{
         let dataNum = tile.dataset.project // index number
         tile.dataset.project = i
@@ -144,7 +143,7 @@ function sortArray(){
     })
 }
 
-function hideDropDown(editContainerNode){
+export function hideDropDown(editContainerNode){
     editContainerNode.classList.remove('active')
 }
 
