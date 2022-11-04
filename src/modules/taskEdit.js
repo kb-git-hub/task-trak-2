@@ -74,7 +74,6 @@ export function deleteTask(e){
     const id = Number(listNode.id)
 
     const selectedTask = findSelectedTask(id)
-    console.log('🌌 | file: taskEdit.js | line 77 | deleteTask | selectedTask', selectedTask)
     let projectID = selectedTask.projectID
     
     projectList[projectID].taskList = 

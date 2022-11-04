@@ -92,6 +92,7 @@ function checkTile(e){
         
         selectTile(homeTile)
         revertOptionLocation();
+        checkWhichHomeTile(homeTile)
         updateTitle(title);
         hideAddTaskBtn()
         
