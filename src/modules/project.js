@@ -1,3 +1,4 @@
+import { dragStartEndEvent } from "./drag";
 import { checkWhichHomeTile } from "./home";
 import { revertOptionLocation } from "./projectEdit";
 import { updateTitle ,id, displayTask } from "./task";
@@ -78,8 +79,7 @@ function addProject(projectID, projectNameInput){
     editDiv.appendChild(editIcon)
 
 
-
-    //dragstartendEvent !!!!!!!!!!!!
+    dragStartEndEvent(projectContainer)
 
 }
 

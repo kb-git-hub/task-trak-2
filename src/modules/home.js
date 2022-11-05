@@ -22,7 +22,7 @@ function clearContent() {
     taskList.textContent = "";
 }
 
-function displayAllTasks() {
+export function displayAllTasks() {
     clearContent();
     projectList.forEach((project) => {
         project.taskList.forEach((task) => {
@@ -79,4 +79,16 @@ function checkNextWeek(taskDate){
         start: today,
         end: nextWeek
     })
+}
+
+function displayImportant(){
+    clearContent()
+    projectList.forEach(project=>{
+        project.taskList.forEach(task=>{
+            if(task.important) addTask(task.id, task.name, task.details, task.date, task.completed, task.important)
+            else return
+        })
+    })
+    checkNoTask()
+
 }

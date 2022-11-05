@@ -2,14 +2,19 @@ import '/src/style.css'
 
 import { createProjectListeners } from './modules/project'
 import { q } from './modules/utils'
-import { createTaskListeners } from './modules/task'
+import { createTaskListeners, displayTask } from './modules/task'
 import { editContainerListeners } from './modules/projectEdit'
+import { dragAndDrop } from './modules/drag'
+import { displayAllTasks } from './modules/home'
 
 
 // listEvents()
 createTaskListeners()
 createProjectListeners()
 editContainerListeners()
+dragAndDrop()
+displayAllTasks()
+
 
 // SHOW / HIDE LEFT MENU
 const menu = q('.hiddenMenu')
