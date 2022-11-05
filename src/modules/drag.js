@@ -2,29 +2,38 @@ import { projectList } from "./project";
 import { sortArray } from "./projectEdit";
 import { q, qA } from "./utils";
 
-export function dragAndDrop() {
-    const project = q(".project");
-    project.addEventListener("mousedown", enableDraggable);
-
-    const tiles = project.querySelectorAll(".tile");
-    tiles.forEach((tile) => dragStartEndEvent(tile));
+export function dragAndDrop (){
+    const project = document.querySelector(".project");
+    project.addEventListener("mousedown", enableDraggable);             //this is to let only drag on three dots icon and not the whole tile
+    
+    const tiles = document.querySelectorAll(".project .tile");
+    tiles.forEach((tile) =>{
+        dragStartEndEvent(tile);
+    });
 
     project.addEventListener("dragover", dragOver);
 }
 
-function enableDraggable(e) {
+function enableDraggable(e){
     const isMenuIcon = e.target.matches("[data-drag]");
-    if (isMenuIcon) e.target.parentNode.draggable = true;
-    else return;
+    if(isMenuIcon){
+        e.target.parentNode.draggable = true;
+    }
+    else{
+        return;
+    }
 }
-export function dragStartEndEvent(tile) {
-    tile.addEventListener("dragstart", () => tile.classList.add("dragging"));
+export function dragStartEndEvent(tile){
+    tile.addEventListener("dragstart",() => {
+        tile.classList.add("dragging");                     
+    });
 
-    tile.addEventListener("dragend", () => {
+    tile.addEventListener("dragend", () =>{
         tile.classList.remove("dragging");
         tile.draggable = false;
         sortArray();
         console.log(projectList);
+                                     
     });
 }
 

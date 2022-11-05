@@ -129,17 +129,18 @@ function deleteProject(e) {
 }
 
 export function sortArray() {
-    let i = 0;
+    let i=0;
+    //reorder the dataset in node and change dataProject accordingly
     const tiles = document.querySelectorAll(".project .tile");
-    tiles.forEach((tile) => {
+    tiles.forEach((tile) =>{
         let dataNum = tile.dataset.project; // index number
         tile.dataset.project = i;
         projectList[dataNum].projectID = i; //update projectID
         i++;
     });
     //Reorder base on dataProject
-    console.log( projectList.sort((a, b) => a.dataProject - b.dataProject))
-    projectList.sort((a, b) => a.dataProject - b.dataProject);
+    projectList.sort((a, b) => a.projectID - b.projectID);
+    console.log('projectList', projectList)
     saveToLocalStorage();
 }
 
